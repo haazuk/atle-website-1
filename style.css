@@ -100,7 +100,7 @@ body {
 }
 
 h1 {
-  font-family: Trebuchet;
+  font-family: Roboto;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -110,7 +110,7 @@ h1 {
   z-index: 99;
   color: white;
   text-align: center;
-  font-size: 5.6em;
+  font-size: 11.3em;
   mix-blend-mode: overlay;
   pointer-events: none;
 }
@@ -152,4 +152,80 @@ h1 {
   padding-bottom: 1px;
 }
 
-
+.loading-container {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background: #fff;
+  transition: 600ms all;
+}
+.loading-container #loading {
+  margin: 0 auto;
+  width: 70px;
+  height: 70px;
+  background: rgba(67, 27, 12, 0.75);
+  border-radius: 50%;
+  -webkit-animation: boing 0.8s linear infinite;
+          animation: boing 0.8s linear infinite;
+  position: relative;
+  top: calc(50% - 35px);
+}
+.loading-container #loading:before {
+  content: "";
+  position: absolute;
+  left: calc(50% - 30px);
+  top: calc(50% - 30px);
+  display: block;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: white;
+  -webkit-animation: boing-inner 0.8s linear infinite;
+          animation: boing-inner 0.8s linear infinite;
+}
+@-webkit-keyframes boing {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(0.75);
+  }
+  100% { 
+    transform: scale(1);
+  }
+}
+@keyframes boing {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(0.75);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@-webkit-keyframes boing-inner {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(0.6);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes boing-inner {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(0.6);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

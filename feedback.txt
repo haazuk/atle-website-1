@@ -1,0 +1,6 @@
+August 10, 2023
+
+Amazing website design, Hazik! I look forward to seeing your other pages.
+[ ] Set up the API for users 
+
+Since you seem comfortable with Javascript, I'd like you to setup your Users API with encryption. You may use a simple encryption like btoa() and atob()

@@ -7,3 +7,5 @@ window.addEventListener("load", function(){
 	hoverImagesContainer.style.opacity = '1';
 });
 
+// Cursor
+

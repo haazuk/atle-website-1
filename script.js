@@ -8,7 +8,7 @@ window.addEventListener("load", function(){
 });
 
 
-// sorry for the spaghetti code and redundant variables, i wasn't exactly a good coder back then
+// spaghetti code
 
 const cols = 3;
 const main = document.getElementById('main');

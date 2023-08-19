@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="login.css" rel="stylesheet" type="text/css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet" type="text/css" />
+
+
+  <script>
+    // If user is already logged in, redirect to homepage
+    if(sessionStorage.getItem('userStatus') == 'loggedIn') {
+      console.log('Redirecting...');
+      window.location.href = 'index.html';
+    } else {
+      console.log('Not redirecting...');
+    }
+  </script>
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="website-logo"><img src = "imgs/website-logo.png" alt="National Bookstore"/></a>
+    <nav>
+      <a href="about.html">About</a>
+      <a class="login-link" href="login.html">Log in</a>
+      <a class="logout-link" href="index.html" onclick="logout()">Log out</a>
+      <a class="checkout-link" href="checkout.html"><span id="CartCount" >0</span><i class="fa-solid fa-cart-shopping"></i></a>
+    </nav>
+  </header>
+  <div class="login-container">
+    <h1>Log in</h1>
+    <div class="login-form">
+      <input id="EmailText" type="text" placeholder="Email" />
+      <input id="PasswordText" type="password" placeholder="Password" />
+      <div id="LoginButton" class="login-button" onclick="check_login()">Log in</div>
+    </div>
+  </div>
+  <script src="login.js"></script>
+  <script src="login2.js"></script>
+</body>
+</html>

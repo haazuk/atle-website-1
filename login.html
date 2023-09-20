@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link href="login.css" rel="stylesheet" type="text/css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="Border-frame">
+        <img class="login-bg-img" src="imgs/loginbg.png" alt="imgs/login.png">
+        <b class="loginbox">
+            <img src="imgs/avatar3.png" class="avatar">
+            <form>
+                <p1>Login Here</p1>
+                <p>Username</p>
+                <input id="Usertext" type="text" placeholder="Username" /> 
+              <p>Paswword</p>
+      <input id="PasswordText" type="password" placeholder="Password" />
+                <input type="button" name="" value="Login" onclick="check_login()">
+                <a href="#">Lost your password?</a><br>
+                <a href="#">Don't have an account?</a>
+            </form>
+        </b>
+    </div>
+
+    <div class="navbar-frame">
+        <a href="index.html" id="landing-page">
+            <button class="Dash-deliveries"><b>Dash Deliveries</b></button>
+        </a>
+        <a href="login.html" id="login-button"> 
+            <button class="Login"><b>Login</b></button>  
+        </a>
+        <a class="checkout-link" href="checkout.html"><span id="CartCount">0</span><i
+                class="fa-solid fa-cart-shopping"></i></a>
+        <form class="search-bar" action="/search" method="GET">
+            <input type="text" name="query" placeholder="Search...">
+        </form>
+        <div class="image-logo">
+            <img src="logo.png" alt="Image">
+        </div>
+    </div>
+  
+  <script src="login.js"></script>
+</body>
+
+</html>

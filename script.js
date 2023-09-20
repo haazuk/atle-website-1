@@ -1,3 +1,8 @@
+const api_url = "https://itch.io/api/1/QsKjA7CPf7Rs8TN13CgzGBhlRAvEIMNLmYqUOoEZ/my-games"
+
+
+
+
 // Loading Screen
 window.addEventListener("load", function() {
   let hoverImagesContainer = document.getElementById('imageHover');
@@ -237,4 +242,6 @@ $(document).ready(function() {
     }
   });
 });
+
+
 

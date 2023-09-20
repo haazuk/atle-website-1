@@ -1,17 +1,17 @@
 // Loading Screen
-window.addEventListener("load", function(){
-	let hoverImagesContainer = document.getElementById('imageHover');
-	let loadingScreen = document.getElementById('loadingScreen');
-	loadingScreen.style.opacity = '0';
-	loadingScreen.style.zIndex = '-2';
-	hoverImagesContainer.style.opacity = '1';
+window.addEventListener("load", function() {
+  let hoverImagesContainer = document.getElementById('imageHover');
+  let loadingScreen = document.getElementById('loadingScreen');
+  loadingScreen.style.opacity = '0';
+  loadingScreen.style.zIndex = '-2';
+  hoverImagesContainer.style.opacity = '1';
 });
 
 
 //Navigation
 
-$(document).ready(function () {
-  $("html").on("DOMMouseScroll mousewheel", function (e) {
+$(document).ready(function() {
+  $("html").on("DOMMouseScroll mousewheel", function(e) {
     if (e.originalEvent.detail > 0 || e.originalEvent.wheelDelta < 0) {
       //alternative options for wheelData: wheelDeltaX & wheelDeltaY
       //scroll down
@@ -32,7 +32,7 @@ $(document).ready(function () {
   var $menu = $("#menu"),
     $menulink = $(".menu-link");
 
-  $menulink.click(function () {
+  $menulink.click(function() {
     $menulink.toggleClass("active");
     $menu.toggleClass("active");
     return false;
@@ -40,7 +40,7 @@ $(document).ready(function () {
 
   var toggled = 0;
 
-  $(".menu-link").click(function () {
+  $(".menu-link").click(function() {
     if (toggled == 0) {
       $(".bar3").stop().transition({ rotate: "45", "margin-top": "13px" });
       $(".bar2").stop().transition({ opacity: "0" }, "fast");
@@ -61,31 +61,31 @@ $(document).ready(function () {
 //horizontal area
 const track = document.querySelector('.h-track');
 
-if( track ) {
-  
+if (track) {
+
   track.classList.add('invisible-scrollbar');
   const trackContainer = track.querySelector('.h-content-container')
-  
+
   let registeredScroll = false;
   let outerWidth = track.offsetWidth;
   let innerWidth = trackContainer.scrollWidth;
-  
+
   const updatePct = () => {
     const pct = (track.scrollLeft / (innerWidth - outerWidth)) * 100;
-    
+
     track.dataset.scrollPercent = pct;
     document.documentElement.style.setProperty('--scroll-pct', `${track.dataset.scrollPercent}%`);
   }
   updatePct();
-  
+
   window.addEventListener('resize', (e) => {
     outerWidth = track.offsetWidth;
     innerWidth = trackContainer.scrollWidth;
     updatePct();
   });
-  
+
   track.addEventListener("scroll", (evt) => {
-    if( !registeredScroll ) {
+    if (!registeredScroll) {
       track.setAttribute('data-scroll', track.scrollLeft + evt.deltaY + evt.deltaX)
     }
   });
@@ -95,25 +95,25 @@ if( track ) {
     evt.preventDefault();
     const tpMultiplier = evt.deltaY % 1 === 0 ? 5 : 1;
     track.setAttribute('data-scroll', track.scrollLeft + (evt.deltaY * tpMultiplier) + (evt.deltaX * tpMultiplier))
-    
+
   });
- 
+
   let pos = { top: 0, left: 0, x: 0, y: 0 };
-  
-  window.addEventListener( 'keydown', (e) => {
-    
-    if( e.key === "ArrowUp" || e.key === "ArrowLeft" ) {
+
+  window.addEventListener('keydown', (e) => {
+
+    if (e.key === "ArrowUp" || e.key === "ArrowLeft") {
       registeredScroll = true;
       track.setAttribute('data-scroll', track.scrollLeft - 100)
-    } else if( e.key === "ArrowDown" || e.key === "ArrowRight" ) {
+    } else if (e.key === "ArrowDown" || e.key === "ArrowRight") {
       registeredScroll = true;
       track.setAttribute('data-scroll', track.scrollLeft + 100)
     }
   })
-  
+
   const mouseDownHandler = (e) => {
     registeredScroll = true;
-    
+
     track.style.cursor = 'grabbing';
     track.style.userSelect = 'none';
 
@@ -124,12 +124,12 @@ if( track ) {
 
     document.addEventListener('mousemove', mouseMoveHandler);
     document.addEventListener('mouseup', mouseUpHandler);
-    
+
   };
 
   const mouseMoveHandler = (e) => {
     registeredScroll = true;
-    
+
     const cx = e.clientX ?? e.touches?.[0]?.clientX + e.touches?.[0]?.clientY ?? 0
     const dx = cx - pos.x;
     track.setAttribute('data-scroll', pos.left - dx)
@@ -138,45 +138,45 @@ if( track ) {
   const mouseUpHandler = () => {
     document.removeEventListener('mousemove', mouseMoveHandler);
     document.removeEventListener('mouseup', mouseUpHandler);
-    
+
     track.style.cursor = 'grab';
     track.style.removeProperty('user-select');
   };
 
   track.addEventListener('mousedown', mouseDownHandler);
-  
+
   const update = () => {
-    
-    if( registeredScroll ) {
+
+    if (registeredScroll) {
       const toX = parseFloat(track.getAttribute('data-scroll')) ?? 0;
       const dx = toX - track.scrollLeft;
 
-      if( dx > 1 || dx < -1 ) {
+      if (dx > 1 || dx < -1) {
         track.scrollLeft += dx * .10;
       } else {
         track.scrollLeft = toX;
         registeredScroll = false;
       }
     }
-      updatePct();
+    updatePct();
     requestAnimationFrame(update);
   }
-  
+
   requestAnimationFrame(update);
-  
+
 }
-  
+
 //Color changing sections
 
 const defaults = {
-  bgColor:document.documentElement.style.getPropertyValue('--bg-color'),
-  textColor:document.documentElement.style.getPropertyValue('--text-color')
+  bgColor: document.documentElement.style.getPropertyValue('--bg-color'),
+  textColor: document.documentElement.style.getPropertyValue('--text-color')
 }
 
 
 const bgColorObserver = new IntersectionObserver((entries, observer) => {
   entries.forEach(entry => {
-    if( entry.isIntersecting ) {
+    if (entry.isIntersecting) {
       document.documentElement.style.setProperty('--bg-color', entry.target.dataset.bgColor ?? defaults.bgColor);
       document.documentElement.style.setProperty('--text-color', entry.target.dataset.textColor ?? defaults.textColor);
     }
@@ -186,7 +186,7 @@ const bgColorObserver = new IntersectionObserver((entries, observer) => {
   threshold: 0.501
 });
 
-document.querySelectorAll('[data-bg-color]').forEach( changer => {
+document.querySelectorAll('[data-bg-color]').forEach(changer => {
   changer.style.setProperty('background-color', changer.dataset.navColor); //this is just to know which is which
   bgColorObserver.observe(changer);
 });

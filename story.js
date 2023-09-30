@@ -8,8 +8,6 @@ window.addEventListener("load", function() {
 });
 
 
-
-
 // Highlighting Mechanic For Animated Text Sections
 const highlight = document.getElementById("highlight-style");
 const mode = document.getElementById("mode");

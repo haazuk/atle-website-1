@@ -1,7 +1,11 @@
-const api_url = "https://itch.io/api/1/QsKjA7CPf7Rs8TN13CgzGBhlRAvEIMNLmYqUOoEZ/my-games"
 
+// start button links 
 
+const button = document.querySelector('.slide');
 
+button.addEventListener('click', function() {
+  window.location.href = 'story.html';
+});
 
 // Loading Screen
 window.addEventListener("load", function() {
@@ -194,54 +198,6 @@ function wheel(e) {
 window.addEventListener('mousewheel', wheel, false);
 window.addEventListener('wheel', wheel, false);
 
-//Navigation
-
-$(document).ready(function() {
-  $("html").on("DOMMouseScroll mousewheel", function(e) {
-    if (e.originalEvent.detail > 0 || e.originalEvent.wheelDelta < 0) {
-      //alternative options for wheelData: wheelDeltaX & wheelDeltaY
-      //scroll down
-      console.log("Down");
-      $("#header-nav").addClass("hide-nav-bar");
-    } else {
-      //scroll up
-      console.log("Up");
-      $("#header-nav").removeClass("hide-nav-bar");
-    }
-    //prevent page fom scrolling
-    //return false;
-  });
-
-  // On click show menu on small screen
-
-  $("body").addClass("js");
-  var $menu = $("#menu"),
-    $menulink = $(".menu-link");
-
-  $menulink.click(function() {
-    $menulink.toggleClass("active");
-    $menu.toggleClass("active");
-    return false;
-  });
-
-  var toggled = 0;
-
-  $(".menu-link").click(function() {
-    if (toggled == 0) {
-      $(".bar3").stop().transition({ rotate: "45", "margin-top": "13px" });
-      $(".bar2").stop().transition({ opacity: "0" }, "fast");
-      $(".bar1").stop().transition({ rotate: "-45", "margin-top": "13px" });
-      toggled++;
-      console.log("toggled down");
-    } else {
-      $(".bar3").stop().transition({ rotate: "+=135", "margin-top": "3px" });
-      $(".bar2").transition({ opacity: "1" }, "fast");
-      $(".bar1").stop().transition({ rotate: "-=135", "margin-top": "23px" });
-      toggled--;
-      console.log("Togged Up");
-    }
-  });
-});
 
 
 

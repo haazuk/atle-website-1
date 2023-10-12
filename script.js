@@ -28,6 +28,7 @@ let images = [
   "images/cloud.gif",
   "images/city.gif"
 ];
+
 let current = 0;
 let playing = false;
 

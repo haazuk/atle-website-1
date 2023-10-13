@@ -418,7 +418,7 @@ button {
   background: transparent;
   padding: 0;
   font-size: inherit;
-  font-family: inherit;
+  font-family: Roboto;
 }
 
 button.slide {

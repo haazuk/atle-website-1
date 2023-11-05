@@ -62,7 +62,7 @@
 
   
 
-
+<body onload="pullTime(); startCountdown()">
   <main>
     <h1>Once upon..</h1>
     <p>In the mystical realm of Antlephobia, where the boundaries between magic and science blurred, a village stood as a sanctuary against the darkness that encroached from the wild unknown.
@@ -93,8 +93,14 @@
         class="text-highlight">As the dust settled and the villagers began to rebuild, they couldn't shake the feeling that the recent events were but a prelude to something far more sinister. </mark>he foreshadowing of a darkness yet unseen weighed heavily on their hearts.
 
 Antlephobia, a realm where fantasy and science coexisted, held secrets deeper than any could have imagined, and the newly formed fellowship of noblemen, bakers, and warriors were destined to uncover them, for they were the chosen ones in a tale of adventure, magic, and impending peril.</p>
-  </main>
 
+    <div id="countdown">
+      <div id="countdown-numbers">
+        <span id="days" class="large-number"></span> Days
+        <span id="hours" class="large-number"></span> Hours
+        <span id="minutes" class="large-number"></span> Minutes
+      </div>
+  </main>
   <div class='loading-container' id='loadingScreen'>
     <div id="loading"></div>
   </div>

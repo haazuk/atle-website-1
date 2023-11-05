@@ -8,6 +8,38 @@ window.addEventListener("load", function() {
   hoverImagesContainer.style.opacity = '1';
 });
 
+function pullTime() {
+  fetch('https://api.timezonedb.com/v2.1/get-time-zone?key=6IFWYMZG93VG&format=json&by=zone&zone=New-Zealand')
+    .then(response => response.json())
+    .then(data => {
+      const currentTime = data.formatted;
+      const targetDate = new Date('2023-11-25T00:00:00Z');
+      const timeRemaining = calculateTimeRemaining(currentTime, targetDate);
+      displayTimeRemaining(timeRemaining);
+    });
+}
+
+function calculateTimeRemaining(currentTime, targetDate) {
+  const timeDiff = targetDate - new Date(currentTime);
+  const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+  return { days, hours, minutes };
+}
+
+function displayTimeRemaining(timeRemaining) {
+  document.getElementById('days').textContent = timeRemaining.days;
+  document.getElementById('hours').textContent = timeRemaining.hours;
+  document.getElementById('minutes').textContent = timeRemaining.minutes;
+}
+
+function startCountdown() {
+  calculateTimeRemaining();
+  setInterval(() => {
+    calculateTimeRemaining();
+  }, 10);
+}
+
 
 //Navigation
 $(document).ready(function() {

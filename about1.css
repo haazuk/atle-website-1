@@ -361,6 +361,9 @@ nav[role=navigation] li a {
   -moz-transform: rotate(-180deg);
   -o-transform: rotate(-180deg);
 }
+
+
+
 .bar2 {
   margin-top: 13px;
 }
@@ -404,17 +407,22 @@ nav[role=navigation] li a {
   max-width: 72em;
   margin: 0 auto;
 }
-section {
-  margin-top: 4em;
-  padding: 1em;
-  color: #5c5c5c;
+.section {
+  line-height: 1.5; /* Set the desired line height */
+  margin: 1em 0; /* Add margin to create space between paragraphs */
+  background-color: #222222;
+  padding: 1rem;
 }
 section hr {
   border-bottom: none;
   color: #f2f2f2;
+  padding: 1rem;
+  margin: 1rem 0;
 }
 .info {
   text-align: center;
+  padding: 1rem;
+  margin: 45ch;
 }
 
 *, *::before, *::after {
@@ -486,3 +494,11 @@ body {
   height: 100%;
   width: var(--scroll-pct);
 }
+
+.p {
+  display: block;
+  font-size: 16px;
+  font-family: sans-serif;
+  line-height: 1.5;
+}
+

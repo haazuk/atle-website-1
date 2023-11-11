@@ -1,3 +1,100 @@
+/* Keyframes for spinner animations */
+.loading-container {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background: #fff;
+  transition: 600ms all;
+   z-index: 999;
+}
+/* Keyframes for spinner animations */
+.loading-container #loading {
+  margin: 0 auto;
+  width: 70px;
+  height: 70px;
+  background: rgba(67, 27, 12, 0.75);
+  border-radius: 50%;
+  -webkit-animation: boing 0.8s linear infinite;
+  animation: boing 0.8s linear infinite;
+  position: relative;
+  top: calc(50% - 35px);
+}
+/* Keyframes for spinner animations */
+.loading-container #loading:before {
+  content: "";
+  position: absolute;
+  left: calc(50% - 30px);
+  top: calc(50% - 30px);
+  display: block;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: white;
+  -webkit-animation: boing-inner 0.8s linear infinite;
+  animation: boing-inner 0.8s linear infinite;
+}
+
+
+/* Keyframes for spinner animations */
+@-webkit-keyframes boing {
+  0% {
+    transform: scale(1);
+  }
+
+  25% {
+    transform: scale(0.75);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes boing {
+  0% {
+    transform: scale(1);
+  }
+
+  25% {
+    transform: scale(0.75);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@-webkit-keyframes boing-inner {
+  0% {
+    transform: scale(1);
+  }
+
+  25% {
+    transform: scale(0.6);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes boing-inner {
+  0% {
+    transform: scale(1);
+  }
+
+  25% {
+    transform: scale(0.6);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Keyframes for spinner animations */
 body {
     margin: 0;
     display: flex;
@@ -5,6 +102,7 @@ body {
     justify-content: center;
     height: 100vh;
     background-color: #f0f0f0;
+    font-family: 'Arial', sans-serif;
 }
 
 .container {
@@ -18,6 +116,11 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     max-width: 300px;
     margin: 0 auto;
+}
+/* Paragraphs, input fields, and buttons */
+p {
+    font-size: 14px;
+    margin-bottom: 10px;
 }
 
 input {
@@ -41,4 +144,144 @@ button {
 
 button:hover {
     background-color: #45a049;
+}
+
+
+/*  navigation */
+a {
+  text-decoration: none;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+}
+
+a:hover {
+  color: #fff;
+}
+/* Header navigation bar styles */
+#header-nav {
+  position: fixed;
+  top: 0;
+  margin: 0;
+  display: block;
+  width: 99%;
+  background: black;
+  -webkit-transition: -webkit-transform 0.7s 0.3s ease;
+  -moz-transition: -moz-transform 0.7s 0.3s ease;
+  -ms-transition: -ms-transform 0.7s 0.3s ease;
+  transition: transform 0.7s 0.3s ease;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: translate3d(0px, 0px, 0px);
+}
+
+#header-nav.hide-nav-bar {
+  -webkit-transform: translate(0, -100%);
+  -moz-transform: translate(0, -100%);
+  -ms-transform: translate(0, -100%);
+  transform: translate(0, -100%);
+  -webkit-backface-visibility: hidden;
+}
+/* Menu icon styles */
+a.menu-link {
+  float: right;
+  display: block;
+  padding: 1em;
+}
+
+nav[role=navigation] {
+  clear: right;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+.js nav[role=navigation] {
+  overflow: hidden;
+  max-height: 0;
+}
+
+nav[role=navigation].active {
+  max-height: 15em;
+}
+
+nav[role=navigation] ul {
+  margin: 0;
+  padding: 0;
+  float: left;
+  padding: 0.7em 0;
+}
+
+nav[role=navigation] li a {
+  display: block;
+  padding: 0.8em;
+  font-size: 0.9em;
+}
+/* Menu icon styles */
+.menu-link {
+  height: 30px;
+  width: 33px;
+  cursor: pointer;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+  margin-top: 3px;
+  background: #999;
+  width: 33px;
+  height: 4px;
+  position: absolute;
+  -webkit-transform: rotate(-180deg);
+  transform: rotate(-180deg);
+  -moz-transform: rotate(-180deg);
+  -o-transform: rotate(-180deg);
+}
+
+.bar2 {
+  margin-top: 13px;
+}
+
+.bar3 {
+  margin-top: 23px;
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+}
+/* Branding styles */
+.brand {
+  float: left;
+  margin-left: 1em;
+  padding: 1em;
+}
+
+.brand h1 {
+  margin: 0;
+  font-size: 1.5em;
+}
+/* Responsive styles for wider screens */
+@media screen and (min-width: 48.25em) {
+  a.menu-link {
+    display: none;
+  }
+
+  .js nav[role=navigation] {
+    max-height: none;
+  }
+
+  nav[role=navigation] ul {
+    margin: 0 0 0 -0.25em;
+    border: 0;
+    float: right;
+  }
+
+  nav[role=navigation] li {
+    display: inline-block;
+    margin: 0 0.25em;
+  }
+
+  nav[role=navigation] li a {
+    border: 0;
+  }
 }

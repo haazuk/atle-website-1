@@ -5,14 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="login.css">
     <title>Email Input Form</title>
+  <div id="header-nav">
+    <div class="container">
+      <!-- H1 for SEO -->
+      <div class="brand">
+        <a href="index.html">
+          <h1>Atlephobia</h1>
+        </a>
+      </div>
+      <!-- Small screen menu button -->
+      <a href="#menu" class="menu-link">
+        <span class="bar1"></span>
+        <span class="bar2"></span>
+        <span class="bar3"></span>
+      </a>
+      <!-- /Small screen menu button -->
+
+      <!-- Menu Items -->
+      <nav id="menu" role="navigation">
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="login.html">Sign Up</a></li>
+          <li><a href="https://hazukan.itch.io/antlephobia">Download</a></li>
+          <li><a href="story.html">Story</a></li>
+        </ul>
+      </nav>
+      <!-- /Menu Items -->
+    </div>
+  </div>
 </head>
 <body>
     <div class="container">
         <div class="form-container">
+            <p><b>Sign up here for the game release newsletter</b> When the "Welcome" page has been reached you may close the tab.</p>
             <input type="email" id="emailInput" placeholder="Enter your email">
-            <button onclick="submitEmail()">Submit</button>
+            <button onclick="validateAndSubmit()">Submit</button>
         </div>
     </div>
+  <!-- /Loading Screen-->
+  <div class='loading-container' id='loadingScreen'>
+    <div id="loading"></div>
+  </div>
     <script src="login.js"></script>
 </body>
 </html>

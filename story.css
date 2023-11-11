@@ -1,5 +1,7 @@
+/* Import a font from Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap");
 
+/* Define CSS variables for color, fonts, and other properties */
 :root {
   --bg-color-hsl: 59, 3%, 94%;
   --bg-color: hsl(var(--bg-color-hsl));
@@ -16,6 +18,7 @@
   --ease: cubic-bezier(0.25, 1, 0.5, 1);
 }
 
+/* Define styles for dark mode by changing variable values */
 .dark-mode {
   --bg-color-hsl: 0, 0%, 7%;
   --bg-color: hsl(var(--bg-color-hsl));
@@ -25,10 +28,12 @@
   --color-text-highlight: hsl(0, 0%, 100%);
 }
 
+/* Apply box-sizing: border-box to all elements */
 * {
   box-sizing: border-box;
 }
 
+/* Style the body with specified fonts, colors, and transitions */
 body {
   font-family: "Lora", sans-serif;
   font-weight: 400;
@@ -37,9 +42,10 @@ body {
   transition: background calc(var(--duration) / 4) var(--ease);
 }
 
+/* Style the header element */
 header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space between;
   position: fixed;
   top: 0;
   left: 0;
@@ -52,30 +58,36 @@ header {
   transition: background calc(var(--duration) / 4) var(--ease);
 }
 
+/* Style elements within the header */
 header .wrapper {
   display: flex;
   align-items: center;
 }
 
+/* Apply some margin to elements within the header */
 header .wrapper>*+* {
   margin-left: 4px;
 }
 
+/* Style the select element */
 select {
   font-family: inherit;
   font-size: 16px;
 }
 
+/* Style the label element */
 label {
   font-size: 0.8rem;
 }
 
+/* Style the main content section */
 main {
   margin: 12rem auto;
   padding: 0 var(--padding);
   max-width: var(--page-width);
 }
 
+/* Style the h1 heading */
 h1 {
   font-size: var(--header-font-size);
   font-weight: 700;
@@ -83,12 +95,14 @@ h1 {
   margin-bottom: 4rem;
 }
 
+/* Style paragraphs */
 p {
   margin: 2rem 0;
   font-size: var(--paragraph-font-size);
   line-height: 1.7;
 }
 
+/* Create a text highlight effect with transitions */
 .text-highlight {
   all: unset;
   background-repeat: no-repeat;
@@ -96,11 +110,13 @@ p {
   transition: color calc(var(--duration) / 4) var(--ease), background-color calc(var(--duration) / 4) var(--ease), background-size var(--duration) var(--ease);
 }
 
+/* Apply the text highlight effect when an element has the 'active' class */
 .text-highlight.active {
   color: var(--color-text-highlight);
   background-size: 100% 100%;
 }
 
+/* Define different text highlight styles based on data attributes */
 [data-highlight=background] .text-highlight {
   background-image: linear-gradient(var(--bg-color-highlight), var(--bg-color-highlight));
 }
@@ -115,6 +131,7 @@ p {
   background-image: linear-gradient(transparent calc(100% - var(--line-size)), var(--color-text) var(--line-size));
 }
 
+/* Create pseudo-elements for text highlighting */
 .text-highlight::before,
 .text-highlight::after {
   position: absolute;
@@ -139,16 +156,18 @@ p {
   content: " [highlight end] ";
 }
 
-/*  navigation */
+/* Style navigation links and transitions */
 a {
   text-decoration: none;
   color: #fff;
+  font-family: 'Roboto', sans-serif;
 }
 
 a:hover {
   color: #fff;
 }
 
+/* Style the header navigation bar with transitions */
 #header-nav {
   position: fixed;
   top: 0;
@@ -164,6 +183,7 @@ a:hover {
   -webkit-transform: translate3d(0px, 0px, 0px);
 }
 
+/* Hide the header navigation bar by transforming it */
 #header-nav.hide-nav-bar {
   -webkit-transform: translate(0, -100%);
   -moz-transform: translate(0, -100%);
@@ -172,12 +192,14 @@ a:hover {
   -webkit-backface-visibility: hidden;
 }
 
+/* Style menu links */
 a.menu-link {
   float: right;
   display: block;
   padding: 1em;
 }
 
+/* Style the navigation bar and its transitions */
 nav[role=navigation] {
   clear: right;
   -webkit-transition: all 0.3s ease-out;
@@ -187,6 +209,7 @@ nav[role=navigation] {
   transition: all 0.3s ease-out;
 }
 
+/* Apply styles for the active navigation element */
 .js nav[role=navigation] {
   overflow: hidden;
   max-height: 0;
@@ -196,6 +219,7 @@ nav[role=navigation].active {
   max-height: 15em;
 }
 
+/* Style navigation lists and list items */
 nav[role=navigation] ul {
   margin: 0;
   padding: 0;
@@ -209,12 +233,14 @@ nav[role=navigation] li a {
   font-size: 0.9em;
 }
 
+/* Style the menu link elements */
 .menu-link {
   height: 30px;
   width: 33px;
   cursor: pointer;
 }
 
+/* Create bars for the menu icon */
 .bar1,
 .bar2,
 .bar3 {
@@ -229,10 +255,12 @@ nav[role=navigation] li a {
   -o-transform: rotate(-180deg);
 }
 
+/* Adjust the position of the second bar */
 .bar2 {
   margin-top: 13px;
 }
 
+/* Adjust the position and rotation of the third bar */
 .bar3 {
   margin-top: 23px;
   -webkit-transform: rotate(180deg);
@@ -241,26 +269,32 @@ nav[role=navigation] li a {
   -o-transform: rotate(180deg);
 }
 
+/* Style the brand element */
 .brand {
   float: left;
   margin-left: 1em;
   padding: 1em;
 }
 
+/* Style the heading within the brand element */
 .brand h1 {
   margin: 0;
   font-size: 1.5em;
 }
 
+/* Apply responsive styles for screen width above 48.25em */
 @media screen and (min-width: 48.25em) {
+  /* Hide the menu link on larger screens */
   a.menu-link {
     display: none;
   }
 
+  /* Reset the max-height of the navigation bar for larger screens */
   .js nav[role=navigation] {
     max-height: none;
   }
 
+  /* Adjust styles for navigation lists and list items on larger screens */
   nav[role=navigation] ul {
     margin: 0 0 0 -0.25em;
     border: 0;
@@ -277,36 +311,43 @@ nav[role=navigation] li a {
   }
 }
 
+/* Style a container with a maximum width and center it */
 .container {
   max-width: 72em;
   margin: 0 auto;
 }
 
+/* Style a section with margins, padding, and color */
 section {
   margin-top: 4em;
   padding: 1em;
   color: #5c5c5c;
 }
 
+/* Style an HR element with a specific color */
 section hr {
   border-bottom: none;
   color: #f2f2f2;
 }
 
+/* Center text within an element */
 .info {
   text-align: center;
 }
 
+/* Style the countdown section */
 #countdown {
   margin-top: 50px;
 }
 
+/* Center elements within the countdown section */
 #countdown-numbers {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+/* Style large numbers with a background and padding */
 .large-number {
   font-size: 3em; /* Adjust the font size as needed */
   font-weight: bold;

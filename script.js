@@ -1,41 +1,52 @@
-
-// start button links 
-
-const button = document.querySelector('.slide');
-
-button.addEventListener('click', function() {
-  window.location.href = 'story.html';
-});
-
 // Loading Screen
 window.addEventListener("load", function() {
+  // Get the elements for the loading screen and hover images container
   let hoverImagesContainer = document.getElementById('imageHover');
   let loadingScreen = document.getElementById('loadingScreen');
+
+  // Hide the loading screen
   loadingScreen.style.opacity = '0';
   loadingScreen.style.zIndex = '-1';
+
+  // Show the hover images container
   hoverImagesContainer.style.opacity = '1';
 });
 
+// Handle a button click event
+const button = document.querySelector('.slide');
 
-// spaghetti code
+button.addEventListener('click', function() {
+  // Redirect to the 'story.html' page
+  window.location.href = 'story.html';
+});
 
+// Define some variables for the following code
+
+// Number of columns
 const cols = 3;
+// Get the main element
 const main = document.getElementById('main');
+// Create an array to store 'part' elements
 let parts = [];
 
+// Array of image paths
 let images = [
   "images/pond.gif",
   "images/cloud.gif",
   "images/city.gif"
 ];
 
+// Index of the current image
 let current = 0;
+// Flag to check if an animation is playing
 let playing = false;
 
+// Preload the images
 for (let i in images) {
   new Image().src = images[i];
 }
 
+// Create 'part' elements and populate them with images
 for (let col = 0; col < cols; col++) {
   let part = document.createElement('div');
   part.className = 'part';
@@ -50,11 +61,13 @@ for (let col = 0; col < cols; col++) {
   parts.push(part);
 }
 
+// Animation options
 let animOptions = {
   duration: 2.3,
   ease: Power4.easeInOut
 };
 
+// Function to perform image transitions
 function go(dir) {
   if (!playing) {
     playing = true;
@@ -62,6 +75,7 @@ function go(dir) {
     else if (current + dir >= images.length) current = 0;
     else current += dir;
 
+    // Function to move the image up
     function up(part, next) {
       part.appendChild(next);
       gsap.to(part, { ...animOptions, y: -window.innerHeight }).then(function() {
@@ -70,6 +84,7 @@ function go(dir) {
       })
     }
 
+    // Function to move the image down
     function down(part, next) {
       part.prepend(next);
       gsap.to(part, { duration: 0, y: -window.innerHeight });
@@ -79,6 +94,7 @@ function go(dir) {
       })
     }
 
+    // Loop through 'parts' and transition images
     for (let p in parts) {
       let part = parts[p];
       let next = document.createElement('div');
@@ -96,25 +112,28 @@ function go(dir) {
   }
 }
 
+// Listen for keyboard arrow keys
 window.addEventListener('keydown', function(e) {
   if (['ArrowDown', 'ArrowRight'].includes(e.key)) {
     go(1);
-  }
-
-  else if (['ArrowUp', 'ArrowLeft'].includes(e.key)) {
+  } else if (['ArrowUp', 'ArrowLeft'].includes(e.key)) {
     go(-1);
   }
 });
 
+// Linear interpolation function
 function lerp(start, end, amount) {
-  return (1 - amount) * start + amount * end
+  return (1 - amount) * start + amount * end;
 }
 
+// Create cursor elements
 const cursor = document.createElement('div');
 cursor.className = 'cursor';
 
 const cursorF = document.createElement('div');
 cursorF.className = 'cursor-f';
+
+// Initialize cursor position and properties
 let cursorX = 0;
 let cursorY = 0;
 let pageX = 0;
@@ -123,17 +142,21 @@ let size = 8;
 let sizeF = 36;
 let followSpeed = .16;
 
+// Append cursor elements to the document
 document.body.appendChild(cursor);
 document.body.appendChild(cursorF);
 
+// Hide cursor elements on touch devices
 if ('ontouchstart' in window) {
   cursor.style.display = 'none';
   cursorF.style.display = 'none';
 }
 
+// Set the initial cursor sizes
 cursor.style.setProperty('--size', size + 'px');
 cursorF.style.setProperty('--size', sizeF + 'px');
 
+// Handle mouse movement
 window.addEventListener('mousemove', function(e) {
   pageX = e.clientX;
   pageY = e.clientY;
@@ -141,6 +164,7 @@ window.addEventListener('mousemove', function(e) {
   cursor.style.top = e.clientY - size / 2 + 'px';
 });
 
+// Function to update cursor position
 function loop() {
   cursorX = lerp(cursorX, pageX, followSpeed);
   cursorY = lerp(cursorY, pageY, followSpeed);
@@ -151,10 +175,12 @@ function loop() {
 
 loop();
 
+// Variables for tracking click and swipe actions
 let startY;
 let endY;
 let clicked = false;
 
+// Handle mouse down event
 function mousedown(e) {
   gsap.to(cursor, { scale: 4.5 });
   gsap.to(cursorF, { scale: .4 });
@@ -162,6 +188,8 @@ function mousedown(e) {
   clicked = true;
   startY = e.clientY || e.touches[0].clientY || e.targetTouches[0].clientY;
 }
+
+// Handle mouse up event
 function mouseup(e) {
   gsap.to(cursor, { scale: 1 });
   gsap.to(cursorF, { scale: 1 });
@@ -174,6 +202,8 @@ function mouseup(e) {
     endY = null;
   }
 }
+
+// Listen for mouse and touch events
 window.addEventListener('mousedown', mousedown, false);
 window.addEventListener('touchstart', mousedown, false);
 window.addEventListener('touchmove', function(e) {
@@ -184,6 +214,7 @@ window.addEventListener('touchmove', function(e) {
 window.addEventListener('touchend', mouseup, false);
 window.addEventListener('mouseup', mouseup, false);
 
+// Handle mouse wheel events with a delay
 let scrollTimeout;
 function wheel(e) {
   clearTimeout(scrollTimeout);
@@ -196,9 +227,7 @@ function wheel(e) {
     }
   })
 }
+
+// Listen for mouse wheel events
 window.addEventListener('mousewheel', wheel, false);
 window.addEventListener('wheel', wheel, false);
-
-
-
-

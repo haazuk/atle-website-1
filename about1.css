@@ -1,7 +1,9 @@
-html {
+/* Set default styles for the HTML element */
+html { 
   height: 100%;
   width: 100%;
 }
+
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300&family=Open+Sans&family=Roboto:wght@300&display=swap");
 .image-hover-container {
   position: relative;
@@ -9,6 +11,7 @@ html {
   width: 100%;
   display: flex;
 }
+/* Style for the container within the image-hover container */
 .image-hover-container .container {
   position: relative;
   height: 430px;
@@ -16,12 +19,14 @@ html {
   margin: auto;
   display: -webkit-box;
 }
+/* Styles for various elements when hovering over the container */
 .image-hover-container .container:hover > .bottom-right {
   top: 55%;
   left: 80%;
   box-shadow: 0px 37px 29px rgba(0, 0, 0, 0.3);
   width: 350px;
 }
+/* Styles for mini hover containers that pop out after hover*/
 .image-hover-container .container:hover > .middle {
   height: 90%;
   left: 5%;
@@ -29,19 +34,23 @@ html {
   width: 90%;
   box-shadow: 0px 23px 33px rgba(0, 0, 0, 0.34);
 }
+
 .image-hover-container .container:hover > .middle .overlay {
   opacity: 1;
   z-index: 1;
 }
+
 .image-hover-container .container:hover > .middle .overlay p:nth-child(1) {
   padding-top: 0;
 }
+
 .image-hover-container .container:hover > .top-left {
   left: -70px;
   top: -90px;
   width: 150px;
   box-shadow: 0px 37px 29px rgba(0, 0, 0, 0.3);
 }
+
 .image-hover-container .container:hover > .top-right {
   left: 250px;
   top: -90px;
@@ -49,23 +58,28 @@ html {
   height: 280px;
   box-shadow: 0px 37px 29px rgba(0, 0, 0, 0.3);
 }
+
 .image-hover-container .container:hover > .bottom-left {
   left: -89%;
   top: 65%;
   width: 360px;
   box-shadow: 0px 37px 29px rgba(0, 0, 0, 0.3);
 }
+
 .image-hover-container .container .lancaster {
   background: url(images/city.gif) no-repeat;
 }
+
 .image-hover-container .container .lake-district {
   background: url(images/pond.gif) no-repeat;
 }
+
 .image-hover-container .container .bg-image {
   background-size: cover;
   background-attachment: fixed;
   background-position: 10% 10%;
 }
+
 .image-hover-container .container .middle {
   transition: 500ms all;
   transition-delay: 0.25s;
@@ -78,10 +92,12 @@ html {
   top: 0;
   box-shadow: 0px 17px 23px rgba(0, 0, 0, 0.34);
 }
+
 .image-hover-container .container .middle .bg-image {
   height: 100%;
   width: 100%;
 }
+/* Styles for mini hover containers that pop out after hover everthing below */
 .image-hover-container .container .middle .overlay {
   position: absolute;
   top: 0;
@@ -98,6 +114,7 @@ html {
   text-decoration: none;
   z-index: -1;
 }
+
 .image-hover-container .container .middle .overlay p {
   position: relative;
   margin: auto;
@@ -107,18 +124,22 @@ html {
   font-size: 1.1em;
   opacity: 0.8;
 }
+
 .image-hover-container .container .middle .overlay p:nth-child(1) {
   margin-bottom: 4px !important;
   padding-top: 30px;
   transition: all 400ms;
   transition-delay: 0.3s;
 }
+
 .image-hover-container .container .middle .overlay p:nth-child(2) {
   margin-top: 4px !important;
 }
+
 .image-hover-container .container .middle .overlay .mobile-link {
   display: none;
 }
+
 .image-hover-container .container .bottom-right {
   transition: 800ms all;
   transition-delay: 0.15s;
@@ -130,10 +151,12 @@ html {
   box-shadow: 0px 37px 29px rgba(0, 0, 0, 0);
   z-index: 1;
 }
+
 .image-hover-container .container .bottom-right .bg-image {
   height: 220px;
   width: 100%;
 }
+
 .image-hover-container .container .bottom-left {
   transition: 800ms all;
   transition-delay: 0.17s;
@@ -144,10 +167,12 @@ html {
   width: 100%;
   z-index: 1;
 }
+
 .image-hover-container .container .bottom-left .bg-image {
   height: 220px;
   width: 100%;
 }
+
 .image-hover-container .container .top-left {
   transition-timing-function: cubic-bezier(0.17, 0.67, 0.33, 0.97);
   transition: 600ms all;
@@ -158,6 +183,7 @@ html {
   width: 150px;
   z-index: 1;
 }
+
 .image-hover-container .container .top-left .bg-image {
   height: 220px;
   width: 100%;
@@ -203,6 +229,7 @@ html {
     display: none !important;
   }
 }
+
 .loading-container {
   position: fixed;
   height: 100vh;
@@ -212,6 +239,7 @@ html {
   background: #fff;
   transition: 600ms all;
 }
+
 .loading-container #loading {
   margin: 0 auto;
   width: 70px;
@@ -223,30 +251,56 @@ html {
   position: relative;
   top: calc(50% - 35px);
 }
+
+.loading-container {
+  /* Position the loading container as fixed to cover the viewport */
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background: #fff; /* Set the background color to white */
+  transition: 600ms all; /* Apply a 600ms transition to all properties */
+}
+
+.loading-container #loading {
+  margin: 0 auto; /* Center the loading spinner horizontally */
+  width: 70px;
+  height: 70px;
+  background: rgba(67, 27, 12, 0.75); /* Set the background color with some transparency */
+  border-radius: 50%; /* Create a circular shape using border-radius */
+  -webkit-animation: boing 0.8s linear infinite; /* Apply the 'boing' animation with infinite loop */
+  animation: boing 0.8s linear infinite;
+  position: relative;
+  top: calc(50% - 35px); /* Center the loading spinner vertically */
+}
+
 .loading-container #loading:before {
   content: "";
-  position: absolute;
-  left: calc(50% - 30px);
-  top: calc(50% - 30px);
+  position: absolute; /* Position this element absolutely within its container */
+  left: calc(50% - 30px); /* Center it horizontally */
+  top: calc(50% - 30px); /* Center it vertically */
   display: block;
   width: 60px;
   height: 60px;
-  border-radius: 50%;
-  background: white;
-  -webkit-animation: boing-inner 0.8s linear infinite;
-          animation: boing-inner 0.8s linear infinite;
+  border-radius: 50%; /* Create a circular shape for the inner element */
+  background: white; /* Set the background color to white */
+  -webkit-animation: boing-inner 0.8s linear infinite; /* Apply the 'boing-inner' animation with infinite loop */
+  animation: boing-inner 0.8s linear infinite;
 }
+
 @-webkit-keyframes boing {
   0% {
-    transform: scale(1);
+    transform: scale(1); /* Initial scale is 1 */
   }
   25% {
-    transform: scale(0.75);
+    transform: scale(0.75); /* Scale down to 0.75 at 25% of the animation */
   }
   100% {
-    transform: scale(1);
+    transform: scale(1); /* Return to the original scale at 100% of the animation */
   }
 }
+
 @keyframes boing {
   0% {
     transform: scale(1);
@@ -258,17 +312,19 @@ html {
     transform: scale(1);
   }
 }
+
 @-webkit-keyframes boing-inner {
   0% {
     transform: scale(1);
   }
   25% {
-    transform: scale(0.6);
+    transform: scale(0.6); /* Scale down to 0.6 at 25% of the animation */
   }
   100% {
     transform: scale(1);
   }
 }
+
 @keyframes boing-inner {
   0% {
     transform: scale(1);
@@ -281,73 +337,94 @@ html {
   }
 }
 
-/*  navigation */
+/* Styling for links */
 a {
-  text-decoration: none;
-  color: #fff;
-}
-a:hover {
-  color: #fff;
+  text-decoration: none; /* Remove underline from links */
+  color: #fff; /* Set link text color to white */
+  font-family: 'Roboto', sans-serif;/* Font */
 }
 
+/* Styling for link hover effect */
+a:hover {
+  color: #fff; /* Set link text color to white on hover */
+}
+
+/* Styling for the navigation bar */
 #header-nav {
-  z-index: 1;
-  position: fixed;
+  z-index: 1; /* Set the stacking order */
+  position: fixed; /* Fix the navigation bar to the viewport */
   top: 0;
   margin: 0;
   display: block;
-  width: 99%;
-  background: black;
+  width: 99%; /* Set the width to 99% of the parent element */
+  background: black; /* Set the background color to black */
   -webkit-transition: -webkit-transform 0.7s 0.3s ease;
   -moz-transition: -moz-transform 0.7s 0.3s ease;
   -ms-transition: -ms-transform 0.7s 0.3s ease;
-  transition: transform 0.7s 0.3s ease;
+  transition: transform 0.7s 0.3s ease; /* Apply a smooth transition effect */
   -webkit-backface-visibility: hidden;
-  -webkit-transform: translate3d(0px, 0px, 0px);
+  -webkit-transform: translate3d(0px, 0px, 0px); /* Apply a 3D transformation */
 }
+
+/* Hiding the navigation bar with a CSS class */
 #header-nav.hide-nav-bar {
-  -webkit-transform: translate(0, -100%);
+  -webkit-transform: translate(0, -100%); /* Translate the navigation bar up to hide it */
   -moz-transform: translate(0, -100%);
   -ms-transform: translate(0, -100%);
   transform: translate(0, -100%);
   -webkit-backface-visibility: hidden;
 }
+
+/* Styling for menu links */
 a.menu-link {
-  float: right;
+  float: right; /* Float the menu link to the right */
   display: block;
   padding: 1em;
 }
+
+/* Styling for the navigation menu */
 nav[role=navigation] {
-  clear: right;
-  -webkit-transition: all 0.3s ease-out;
+  clear: right; /* Clear any floated elements to prevent layout issues */
+  -webkit-transition: all 0.3s ease-out; /* Apply a smooth transition effect */
   -moz-transition: all 0.3s ease-out;
   -ms-transition: all 0.3s ease-out;
   -o-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
 }
+
+/* JavaScript-controlled navigation menu with sliding animation */
 .js nav[role=navigation] {
   overflow: hidden;
-  max-height: 0;
+  max-height: 0; /* Initially, hide the navigation menu */
 }
+
+/* Styling for the active navigation menu */
 nav[role=navigation].active {
-  max-height: 15em;
+  max-height: 15em; /* Show the navigation menu with a max height of 15em */
 }
+
+/* Styling for navigation menu items */
 nav[role=navigation] ul {
   margin: 0;
   padding: 0;
   float: left;
   padding: 0.7em 0;
 }
+
 nav[role=navigation] li a {
   display: block;
   padding: 0.8em;
   font-size: 0.9em;
 }
+
+/* Styling for the menu icon */
 .menu-link {
   height: 30px;
   width: 33px;
-  cursor: pointer;
+  cursor: pointer; /* Set a cursor as a pointer on hover */
 }
+
+/* Styling for menu bars in the icon */
 .bar1,
 .bar2,
 .bar3 {
@@ -362,11 +439,10 @@ nav[role=navigation] li a {
   -o-transform: rotate(-180deg);
 }
 
-
-
 .bar2 {
   margin-top: 13px;
 }
+
 .bar3 {
   margin-top: 23px;
   -webkit-transform: rotate(180deg);
@@ -374,26 +450,31 @@ nav[role=navigation] li a {
   -moz-transform: rotate(180deg);
   -o-transform: rotate(180deg);
 }
+
+/* Styling for the brand element */
 .brand {
   float: left;
   margin-left: 1em;
   padding: 1em;
 }
+
 .brand h1 {
   margin: 0;
-  font-size: 1.5em;
+  font-size: 1.5em; /* Set the font size for the brand heading */
 }
+
+/* Responsive styling for screens with a minimum width of 48.25em (771px) */
 @media screen and (min-width: 48.25em) {
   a.menu-link {
-    display: none;
+    display: none; /* Hide the menu link on wider screens */
   }
   .js nav[role=navigation] {
-    max-height: none;
+    max-height: none; /* Remove the max-height restriction for the navigation menu */
   }
   nav[role=navigation] ul {
     margin: 0 0 0 -0.25em;
     border: 0;
-    float: right;
+    float: right; /* Float the navigation menu to the right */
   }
   nav[role=navigation] li {
     display: inline-block;
@@ -403,6 +484,7 @@ nav[role=navigation] li a {
     border: 0;
   }
 }
+
 .container {
   max-width: 72em;
   margin: 0 auto;
@@ -442,7 +524,7 @@ body {
   background-color: var(--bg-color);
   transition: background-color 1s, color 1s;
 }
-
+/* Tracks the diffrent sections */
 .h-track {
   width: 100%;
   height: 100vh;
@@ -473,7 +555,7 @@ body {
 .invisible-scrollbar::-webkit-scrollbar {
   display: none;
 }
-
+/* progress bar looks*/
 .progress-bar {
   margin: 10px auto;
   position: fixed;
@@ -501,4 +583,3 @@ body {
   font-family: sans-serif;
   line-height: 1.5;
 }
-
